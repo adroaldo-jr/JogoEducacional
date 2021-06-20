@@ -1,7 +1,8 @@
-import pygame
+import os
+from datetime import date
 
-def mostraMenino(x,y):
-    display.blit(meninoIntro, (x,y))
-
-def mostraMenina(x, y):
-    display.blit(meninoIntro, (x,y))
+def Logs(nome, email):
+    dataAtual = date.today()
+    arquivo = open("LogJogoEducacional.txt", "a")
+    arquivo.write(f"Data: {dataAtual} - Nome: {nome} - E-mail: {email}\n")
+    arquivo.close()
