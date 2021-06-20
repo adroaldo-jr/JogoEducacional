@@ -33,8 +33,11 @@ def text_objects(texto, fonte):
     textSurface = fonte.render(texto, True, black)
     return textSurface, textSurface.get_rect()
 
-def message_display(text):
+def message_display(text, vogais):
     fonte = pygame.font.Font("freesansbold.ttf", 30)
+    txt = "Parabéns! Você fez " + str(vogais) + " pontos!"
+    txttela = fonte.render(txt, True, black)
+    display.blit(txttela, (170, 250))
     TextSurf, TextRect = text_objects(text, fonte)
     TextRect.center = ((largura/2), (altura/2))
     display.blit(TextSurf, TextRect)
@@ -43,7 +46,7 @@ def message_display(text):
     jogo()
 
 def dead(vogais):
-    message_display("Comeu consoante e engasgou. Comeu "+ str(vogais) +" vogais!")
+    message_display("Comeu consoante e engasgou. Comeu "+ str(vogais) +" vogais.", vogais)
 
 def jogo():
     pygame.mixer.music.load('assets/intro.mp3')
